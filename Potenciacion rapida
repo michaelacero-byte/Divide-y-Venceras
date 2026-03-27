@@ -1,0 +1,13 @@
+# =========================================================
+# Ejercicio 4: Potenciación rápida
+# =========================================================
+def potencia_rapida(a, b):
+    if b == 0: return 1
+    temp = potencia_rapida(a, b // 2)
+    if b % 2 == 0:
+        return temp * temp
+    else:
+        return a * temp * temp
+
+print(f"Ejer 4 - Potencia (2^10): {potencia_rapida(2, 10)}")
+# Complejidad O(log n)
