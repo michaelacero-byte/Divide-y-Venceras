@@ -1,0 +1,22 @@
+# =========================================================
+# Ejercicio 3: Multiplicación de Karatsuba (Enteros grandes)
+# =========================================================
+def karatsuba(x, y):
+    if x < 10 or y < 10:
+        return x * y
+    
+    n = max(len(str(x)), len(str(y)))
+    m = n // 2
+    
+    alto1, bajo1 = divmod(x, 10**m)
+    alto2, bajo2 = divmod(y, 10**m)
+    
+    z0 = karatsuba(bajo1, bajo2)
+    z2 = karatsuba(alto1, alto2)
+    z1 = karatsuba((bajo1 + alto1), (bajo2 + alto2)) - z2 - z0
+    
+    return (z2 * 10**(2*m)) + (z1 * 10**m) + z0
+
+res_karatsuba = karatsuba(1234, 5678)
+print(f"Ejer 3 - Multiplicación Karatsuba: {res_karatsuba}")
+# Complejidad O(n^1.58)
