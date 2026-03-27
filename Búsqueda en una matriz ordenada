@@ -1,0 +1,21 @@
+# =========================================================
+# Ejercicio 7: Búsqueda en una matriz ordenada
+# =========================================================
+def buscar_matriz(matriz, objetivo, r1, c1, r2, c2):
+    if r1 > r2 or c1 > c2: return False
+    
+    rmid, cmid = (r1 + r2) // 2, (c1 + c2) // 2
+    if matriz[rmid][cmid] == objetivo: return True
+    
+    if matriz[rmid][cmid] > objetivo:
+        # Buscar en cuadrantes que podrían tener el valor menor
+        return (buscar_matriz(matriz, objetivo, r1, c1, rmid - 1, c2) or 
+                buscar_matriz(matriz, objetivo, rmid, c1, r2, cmid - 1))
+    else:
+        # Buscar en cuadrantes que podrían tener el valor mayor
+        return (buscar_matriz(matriz, objetivo, rmid + 1, c1, r2, c2) or 
+                buscar_matriz(matriz, objetivo, r1, cmid + 1, rmid, c2))
+
+matriz7 = [[10, 20, 30], [15, 25, 35], [20, 30, 40]]
+print(f"Ejer 7 - ¿Encontrado 25?: {buscar_matriz(matriz7, 25, 0, 0, 2, 2)}")
+# Complejidad Subcuadrática O(n^1.58)
