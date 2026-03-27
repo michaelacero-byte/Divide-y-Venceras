@@ -1,0 +1,24 @@
+# =========================================================
+# Ejercicio 5: Merge Sort
+# =========================================================
+def merge_sort(arr):
+    if len(arr) <= 1: return arr
+    
+    medio = len(arr) // 2
+    izq = merge_sort(arr[:medio])
+    der = merge_sort(arr[medio:])
+    
+    # Mezcla (Merge)
+    resultado = []
+    i = j = 0
+    while i < len(izq) and j < len(der):
+        if izq[i] < der[j]:
+            resultado.append(izq[i]); i += 1
+        else:
+            resultado.append(der[j]); j += 1
+    resultado += izq[i:]; resultado += der[j:]
+    return resultado
+
+arreglo5 = [38, 27, 43, 3, 9, 82, 10]
+print(f"Ejer 5 - Arreglo ordenado: {merge_sort(arreglo5)}")
+# Complejidad O(n log n)
