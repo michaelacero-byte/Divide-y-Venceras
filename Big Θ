@@ -1,0 +1,13 @@
+# =========================================================
+# Big Θ
+# =========================================================
+
+int misteri (int n) {
+    int f = 1;
+    for (int i = 2; i ≤ n; ++i) 
+        f *= i;
+    return f;
+}
+
+# ¿Que Hace?
+# empieza en f = 1 despues multiplica f por todos los desde 2 hasta n osea que el codigo calcula el factorial de n
