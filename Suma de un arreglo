@@ -1,0 +1,19 @@
+def suma_arreglo(arr, inicio, fin):
+    if inicio == fin:
+        return arr[inicio]
+    
+    # Dividir el arreglo en dos partes
+    medio = (inicio + fin) // 2
+    
+    suma_izquierda = suma_arreglo(arr, inicio, medio)
+    suma_derecha = suma_arreglo(arr, medio + 1, fin)
+    
+    return suma_izquierda + suma_derecha
+
+
+arreglo = [2, 4, 6, 8]
+resultado = suma_arreglo(arreglo, 0, len(arreglo) - 1)
+
+print("La suma del arreglo es:", resultado)
+
+#Complegidad O(n)
