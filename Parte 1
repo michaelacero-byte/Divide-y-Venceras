@@ -1,0 +1,81 @@
+#1. tT(n) =  2T(n / 2) + n
+
+"""
+Fórmula general: T(n) = aT(n/b) + f(n)
+Comparación clave: n^log_b(a) vs f(n)
+"""
+
+# EJERCICIO 1: T(n) = 2T(n/2) + n
+# ---------------------------------------------------------
+# Parámetros: a = 2, b = 2, f(n) = n
+# 1. Calculamos n^log_b(a): n^log_2(2) = n^1 = n
+# 2. Comparamos: f(n) es IGUAL a n^log_b(a).
+# 3. Resultado (Caso 2): T(n) = θ(n log n)
+# Explicación: Es el caso clásico del Merge Sort. El trabajo se divide equitativamente.
+
+
+#2. tT(n) = 4T(n / 2) + n^2
+
+"""
+Fórmula general: T(n) = aT(n/b) + f(n)
+Comparación clave: n^log_b(a) vs f(n)
+"""
+
+# EJERCICIO 2: T(n) = 4T(n/2) + n^2
+# ---------------------------------------------------------
+# Parámetros: a = 4, b = 2, f(n) = n^2
+# 1. Calculamos n^log_b(a): n^log_2(4) = n^2
+# 2. Comparamos: f(n) es IGUAL a n^log_b(a).
+# 3. Resultado (Caso 2): T(n) = θ(n^2 log n)
+# Explicación: Aunque el número de subproblemas es mayor, el costo de combinar (n^2) 
+# crece al mismo ritmo que la ramificación.
+
+
+#3. tT(n) = 3T(n / 3) + n
+
+"""
+Fórmula general: T(n) = aT(n/b) + f(n)
+Comparación clave: n^log_b(a) vs f(n)
+"""
+
+# EJERCICIO 3: T(n) = 3T(n/3) + n
+# ---------------------------------------------------------
+# Parámetros: a = 3, b = 3, f(n) = n
+# 1. Calculamos n^log_b(a): n^log_3(3) = n^1 = n
+# 2. Comparamos: f(n) es IGUAL a n^log_b(a).
+# 3. Resultado (Caso 2): T(n) = θ(n log n)
+# Explicación: Similar al ejercicio 1, pero con división entre 3.
+
+
+#4. tT = 5T(n / 2) + n^3
+
+"""
+Fórmula general: T(n) = aT(n/b) + f(n)
+Comparación clave: n^log_b(a) vs f(n)
+"""
+
+# EJERCICIO 4: T(n) = 5T(n/2) + n^3
+# ---------------------------------------------------------
+# Parámetros: a = 5, b = 2, f(n) = n^3
+# 1. Calculamos n^log_b(a): n^log_2(5) ≈ n^2.32
+# 2. Comparamos: f(n) = n^3 crece MÁS RÁPIDO que n^2.32.
+# 3. Verificación de regularidad: a*f(n/b) <= c*f(n) -> 5(n/2)^3 = (5/8)n^3. Como 5/8 < 1, cumple.
+# 4. Resultado (Caso 3): T(n) = θ(n^3)
+# Explicación: El costo de "combinar" domina la ejecución.
+
+
+#5. tT = 7T(n / 4) + n^2
+
+"""
+Fórmula general: T(n) = aT(n/b) + f(n)
+Comparación clave: n^log_b(a) vs f(n)
+"""
+
+# EJERCICIO 5: T(n) = 7T(n/4) + n^2
+# ---------------------------------------------------------
+# Parámetros: a = 7, b = 4, f(n) = n^2
+# 1. Calculamos n^log_b(a): n^log_4(7) ≈ n^1.40
+# 2. Comparamos: f(n) = n^2 crece MÁS RÁPIDO que n^1.40.
+# 3. Verificación de regularidad: 7(n/4)^2 = (7/16)n^2. Como 7/16 < 1, cumple.
+# 4. Resultado (Caso 3): T(n) = θ(n^2)
+# Explicación: Al igual que el anterior, el término independiente domina la complejidad total.
